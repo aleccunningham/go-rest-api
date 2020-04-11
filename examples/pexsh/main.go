@@ -1,19 +1,20 @@
 package main
 
 import (
-    "./pexsh"
-    "os"
-    "fmt"
-    "strings"
+	"fmt"
+	"os"
+	"strings"
+
+	"./pexsh"
 )
 
 func getEnvironmentVariable(variable string) (value string) {
 	for _, env := range os.Environ() {
-	if strings.HasPrefix(env, variable + "=") {
+		if strings.HasPrefix(env, variable+"=") {
 			value = env[len(variable)+1:]
+		}
 	}
-    }
-    return value
+	return value
 }
 
 func main() {
@@ -24,6 +25,6 @@ func main() {
 	}
 	displayname := getEnvironmentVariable("USER") + "@pexsh"
 	destination := os.Args[1]
-    shell := pexsh.NewShell(displayname, destination)
-    shell.Run()
+	shell := pexsh.NewShell(displayname, destination)
+	shell.Run()
 }
