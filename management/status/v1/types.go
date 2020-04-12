@@ -1,4 +1,4 @@
-package types
+package status
 
 // ResponseMeta encompasses the meta object returned
 // with all API response calls
