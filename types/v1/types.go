@@ -13,15 +13,15 @@ type ResponseMeta struct {
 // ConferencingNodes defines a conference nodes properties
 // https://<manageraddress>/api/admin/status/v1/worker_vm/
 type ConferencingNodes struct {
-	Meta  ResponseMeta `json:"meta"`
-	Nodes []WorkerVM   `json:"objects"`
+	Meta    ResponseMeta `json:"meta"`
+	Objects []WorkerVM   `json:"objects"`
 }
 
 // SystemLocations encompasses all system locations
 // https://<manageraddress>/api/admin/status/v1/system_location/
 type SystemLocations struct {
-	Meta      ResponseMeta `json:"meta"`
-	Locations []Location   `json:"objects"`
+	Meta    ResponseMeta `json:"meta"`
+	Objects []Location   `json:"objects"`
 }
 
 // LocationStatistics encompasses a system locations statistics
@@ -33,8 +33,8 @@ type LocationStatistics struct {
 // CloudMonitoredLocations encompasses all locations that are being monitored for dynamic bursting
 // https://<manageraddress>/api/admin/status/v1/cloud_monitored_location/
 type CloudMonitoredLocations struct {
-	Meta      ResponseMeta `json:"meta"`
-	Locations []Location   `json:"objects"`
+	Meta    ResponseMeta `json:"meta"`
+	Objects []Location   `json:"objects"`
 }
 
 // CloudOverflowLocations encompasses all locations that may be used for dynamic bursting
@@ -44,17 +44,22 @@ type CloudOverflowLocations struct {
 	Locations []Location   `json:"objects"`
 }
 
+// Participants encompasses
+// https://<manageraddress>/api/admin/status/v1/participant/
 type Participants struct {
-	Meta         ResponseMeta  `json:"meta"`
-	Participants []Participant `json:"objects"`
+	Meta    ResponseMeta  `json:"meta"`
+	Objects []Participant `json:"objects"`
 }
 
+// Conferences encompasses
+// https://<manageraddress>/api/admin/status/v1/conference/
 type Conferences struct {
-	Meta        ResponseMeta `json:"meta"`
-	Conferences []Conference `json:"objects"`
+	Meta    ResponseMeta `json:"meta"`
+	Objects []Conference `json:"objects"`
 }
 
-// Backplane ...
+// Backplane encompasses
+// https://<manageraddress>/api/admin/status/v1/backplane/
 type Backplane struct {
 	Conference           string `json:"conference,omitempty"`
 	Protocol             string `json:"protocol,omitempty"`

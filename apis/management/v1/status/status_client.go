@@ -44,7 +44,7 @@ func New(c *http.Client, b string) *StatusV1Client {
 // Participants return the current participants
 func (c *StatusV1Client) Participants() ([]v1.Participant, error) {
 	url := fmt.Sprintf("https://%s/%s/participant/", c.BaseURL, StatusURI)
-	var p []v1.Participant
+	var p []v1.Participants
 
 	resp, err := c.client.Get(url)
 	if err != nil {
@@ -52,14 +52,18 @@ func (c *StatusV1Client) Participants() ([]v1.Participant, error) {
 	}
 
 	json.NewDecoder(resp.Body).Decode(&p)
+	_, ok := p.([]v1.Participants)
+	if !ok {
+		fmt.Println("Type assertion failed")
+	}
 
-	return p, nil
+	return p.Objects, nil
 }
 
 // Conferences return the current conferences
 func (c *StatusV1Client) Conferences() ([]v1.Conference, error) {
 	url := fmt.Sprintf("https://%s/%s/conference/", c.BaseURL, StatusURI)
-	var p []v1.Conference
+	var p []v1.Conferences
 
 	resp, err := c.client.Get(url)
 	if err != nil {
@@ -67,8 +71,12 @@ func (c *StatusV1Client) Conferences() ([]v1.Conference, error) {
 	}
 
 	json.NewDecoder(resp.Body).Decode(&p)
+	_, ok := i.([]v1.Conferences)
+	if !ok {
+		fmt.Println("Type assertion failed")
+	}
 
-	return p, nil
+	return p.Objects, nil
 }
 
 // Nodes return the current nodes
@@ -82,14 +90,18 @@ func (c *StatusV1Client) Nodes() ([]v1.Node, error) {
 	}
 
 	json.NewDecoder(resp.Body).Decode(&p)
+	_, ok := p.([]v1.WorkerVM)
+	if !ok {
+		fmt.Println("Type assertion failed")
+	}
 
-	return p, nil
+	return p.Objects, nil
 }
 
 // Locations return the current locations
 func (c *StatusV1Client) Locations() ([]v1.Location, error) {
 	url := fmt.Sprintf("https://%s/%s/system_location/", c.BaseURL, StatusURI)
-	var p []v1.Location
+	var p []v1.SystemLocations
 
 	resp, err := c.client.Get(url)
 	if err != nil {
@@ -97,8 +109,12 @@ func (c *StatusV1Client) Locations() ([]v1.Location, error) {
 	}
 
 	json.NewDecoder(resp.Body).Decode(&p)
+	_, ok := p.([]v1.SystemLocations)
+	if !ok {
+		fmt.Println("Type assertion failed")
+	}
 
-	return p, nil
+	return p.Objects, nil
 }
 
 // Backplanes return the current backplanes
@@ -112,8 +128,12 @@ func (c *StatusV1Client) Backplanes() ([]v1.Backplane, error) {
 	}
 
 	json.NewDecoder(resp.Body).Decode(&p)
+	_, ok := p.([]v1.Backplane)
+	if !ok {
+		fmt.Println("Type assertion failed")
+	}
 
-	return p, nil
+	return p.Objects, nil
 }
 
 // Alarms returns the current alarms
@@ -127,8 +147,12 @@ func (c *StatusV1Client) Alarms() ([]v1.Alarm, error) {
 	}
 
 	json.NewDecoder(resp.Body).Decode(&p)
+	_, ok := p.([]v1.Alarm)
+	if !ok {
+		fmt.Println("Type assertion failed")
+	}
 
-	return p, nil
+	return p.Objects, nil
 }
 
 // Licenses return the current licenses
@@ -142,8 +166,12 @@ func (c *StatusV1Client) Licenses() ([]v1.License, error) {
 	}
 
 	json.NewDecoder(resp.Body).Decode(&p)
+	_, ok := p.([]v1.License)
+	if !ok {
+		fmt.Println("Type assertion failed")
+	}
 
-	return p, nil
+	return p.Objects, nil
 }
 
 // CloudNodes return the current active cloud nodes
@@ -157,8 +185,12 @@ func (c *StatusV1Client) CloudNodes() ([]v1.CloudNode, error) {
 	}
 
 	json.NewDecoder(resp.Body).Decode(&p)
+	_, ok := p.([]v1.CloudNode)
+	if !ok {
+		fmt.Println("Type assertion failed")
+	}
 
-	return p, nil
+	return p.Objects, nil
 }
 
 // CloudMonitoredLocations return a summary of the current cloud monitored locations
@@ -172,8 +204,12 @@ func (c *StatusV1Client) CloudMonitoredLocations() ([]v1.CloudMonitoredLocations
 	}
 
 	json.NewDecoder(resp.Body).Decode(&p)
+	_, ok := p.([]v1.CloudMonitoredLocations)
+	if !ok {
+		fmt.Println("Type assertion failed")
+	}
 
-	return p, nil
+	return p.Objects, nil
 }
 
 // CloudOverflowLocations return the current cloud overflow location
@@ -187,6 +223,10 @@ func (c *StatusV1Client) CloudOverflowLocations() ([]v1.CloudOverflowLocations, 
 	}
 
 	json.NewDecoder(resp.Body).Decode(&p)
+	_, ok := p.([]v1.CloudOverflowLocations)
+	if !ok {
+		fmt.Println("Type assertion failed")
+	}
 
-	return p, nil
+	return p.Objects, nil
 }
