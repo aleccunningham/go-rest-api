@@ -8,11 +8,11 @@ import (
 // the management history API
 type HistoryV1Interface interface {
 	RESTClient() rest.Interface
-	AlarmGetter
-	BackplaneGetter
-	ConferenceGetter
-	ParticipantGetter
-	NodeGetter
+	Alarms() ([]v1.Alarm, error)
+	Backplanes() ([]v1.Backplane, error)
+	Conferences() ([]v1.Conference, error)
+	Participants() ([]v1.Participant, error)
+	Nodes() ([]v1.Node, error)
 }
 
 // HistoryV1Client defines the client for interacting with the

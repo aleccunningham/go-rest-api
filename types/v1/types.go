@@ -30,20 +30,68 @@ type LocationStatistics struct {
 	MediaLoad float32 `json:"media_load,omitempty"`
 }
 
-// CloudMonitoredLocations encompasses all locations that
-// are being monitored for dynamic bursting
+// CloudMonitoredLocations encompasses all locations that are being monitored for dynamic bursting
 // https://<manageraddress>/api/admin/status/v1/cloud_monitored_location/
 type CloudMonitoredLocations struct {
 	Meta      ResponseMeta `json:"meta"`
 	Locations []Location   `json:"objects"`
 }
 
-// CloudOverflowLocations encompasses all locations that
-// may be used for dynamic bursting
+// CloudOverflowLocations encompasses all locations that may be used for dynamic bursting
 // https://<manageraddress>/api/admin/status/v1/cloud_overflow_location/
 type CloudOverflowLocations struct {
 	Meta      ResponseMeta `json:"meta"`
 	Locations []Location   `json:"objects"`
+}
+
+type Participants struct {
+	Meta         ResponseMeta  `json:"meta"`
+	Participants []Participant `json:"objects"`
+}
+
+type Conferences struct {
+	Meta        ResponseMeta `json:"meta"`
+	Conferences []Conference `json:"objects"`
+}
+
+// Backplane ...
+type Backplane struct {
+	Conference           string `json:"conference,omitempty"`
+	Protocol             string `json:"protocol,omitempty"`
+	RemoteConferenceName string `json:"remote_conference_name,omitempty"`
+	ConnectTime          string `json:"connect_time,omitempty"`
+	ProxyNode            string `json:"proxy_node,omitempty"`
+	RemoteNodeName       string `json:"remote_node_name,omitempty"`
+	Type                 string `json:"type,omitempty"`
+	RemoteMediaNode      string `json:"remote_media_node,omitempty"`
+	MediaNode            string `json:"media_node,omitempty"`
+	ServiceTag           string `json:"service_tag,omitempty"`
+	SystemLocation       string `json:"system_location,omitempty"`
+	ID                   string `json:"id,omitempty"`
+	ResourceURI          string `json:"resource_uri"`
+}
+
+// Alarm ...
+type Alarm struct {
+	Node        string `json:"node,omitempty"`
+	Name        string `json:"name,omitempty"`
+	Level       string `json:"level,omitempty"`
+	TimeRaised  string `json:"timed_raised,omitempty"`
+	Details     string `json:"details,omitempty"`
+	Identifier  string `json:"identifier,omitempty"`
+	ID          int    `json:"id,omitempty"`
+	ResourceURI string `json:"resource_uri,omitempty"`
+}
+
+// Location encompasses a Pexip location
+type Location struct {
+	ID               int    `json:"id,omitempty"`
+	SystemLocationID int    `json:"systemlocation_id,omitempty"`
+	ResourceURI      string `json:"resource_uri,omitempty"`
+	Name             string `json:"name,omitempty"`
+	MaxHDCalls       int    `json:"max_hd_calls,omitempty"`
+	FreeHDCalls      int    `json:"free_hd_calls,omitempty"`
+	MediaLoad        int    `json:"media_load,omitempty"`
 }
 
 // WorkerVM defines a nodes attributes
@@ -78,6 +126,7 @@ type WorkerVM struct {
 	UpgradeStatus   string       `json:"upgrade_status,omitempty"`
 }
 
+// Participant ...
 type Participant struct {
 	UUID                  string  `json:"uuid"`
 	URI                   string  `json:"uri"`
@@ -97,19 +146,21 @@ type Participant struct {
 	Spotlight             float64 `json:"spotlight"`
 }
 
-type ParticipantsResult struct {
-	Status  string        `json:"statusx"`
-	Objects []Participant `json:"result"`
+// Conference ...
+type Conference struct {
+	StartTime   string `json:"start_time,omitempty"`
+	ResourceURI string `json:"resource_uri,omitempty"`
+	ID          string `json:"id,omitempty"`
+	Name        string `json:"name,omitempty"`
+	ServiceType string `json:"service_type,omitempty"`
+	IsLocked    bool   `json:"is_locked,omitempty"`
+	IsStarted   bool   `json:"is_started,omitempty"`
+	GuestsMuted bool   `json:"guests_muted,omitempty"`
+	Tag         string `json:"tag,omitempty"`
 }
 
-type ConferencesResult struct {
-	Objects []struct {
-		Id        string `json:"id"`
-		Name      string `json:"name"`
-		StartTime string `json:"start_time"`
-		IsLocked  bool   `json:"is_locked"`
-	} `json:"objects"`
-}
+// License ...
+type License struct{}
 
 // ManualDeployTemplate defines the required fields for deploying
 // a new node using the manual deployment type. POSTing a payload
@@ -126,17 +177,6 @@ type ManualDeployTemplate struct {
 	NodeType       string `json:"node_type"`       // 'CONFERENCING'
 	SystemLocation string `json:"system_location"` // '/api/admin/configuration/v1/system_location/1/'
 	DeploymentType string `json:"deployment_type"` // 'MANUAL-PROVISION-ONLY'
-}
-
-// Location encompasses a Pexip location
-type Location struct {
-	ID               int    `json:"id,omitempty"`
-	SystemLocationID int    `json:"systemlocation_id,omitempty"`
-	ResourceURI      string `json:"resource_uri,omitempty"`
-	Name             string `json:"name,omitempty"`
-	MaxHDCalls       int    `json:"max_hd_calls,omitempty"`
-	FreeHDCalls      int    `json:"free_hd_calls,omitempty"`
-	MediaLoad        int    `json:"media_load,omitempty"`
 }
 
 // CloudNode encompases a cloud overflow Conference Node
