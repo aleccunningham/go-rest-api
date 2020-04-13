@@ -1,4 +1,4 @@
-package v1
+package command
 
 import (
 	rest "k8s.io/client-go/rest"
