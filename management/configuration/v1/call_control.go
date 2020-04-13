@@ -28,3 +28,27 @@ func newCallControls(c *ConfigurationV1Client) *callControls {
     client: c.RESTClient()
   }
 }
+
+func (s *systems) H323Gatekeeper(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *systems) SIPCredentials(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *systems) SIPProxy(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *systems) TURNServer(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *systems) STUNServer(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *systems) PolicyServer(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}

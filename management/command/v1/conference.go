@@ -28,3 +28,27 @@ func newConferences(c *CommandV1Client) *conferences {
     client: c.RESTClient()
   }
 }
+
+func (c *conferences) Dial(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (c *conferences) Disconnect(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (c *conferences) Mute(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (c *conferences) Lock(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (c *conferences) Unlock(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (c *conferences) SendEmail(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}

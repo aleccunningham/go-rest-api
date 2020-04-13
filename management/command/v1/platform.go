@@ -29,21 +29,21 @@ func newPlatforms(c *CommandV1Client) *platforms {
 }
 
 func (p *platforms) CreateBackup(ctx context.Context) (interface{}, error) {
-  return nil, error
+  return nil, nil
 }
 
 func (p *platforms) RestoreBackup(ctx context.Context) (interface{}, error) {
-  return nil, error
+  return nil, nil
 }
 
 func (p *platforms) ImportCertificate(ctx context.Context) (interface{}, error) {
-  return nil, error
+  return nil, nil
 }
 
 func (p *platforms) StartCloudNode(ctx context.Context) (interface{}, error) {
-  return nil, error
+  return nil, nil
 }
 
 func (p *platforms) TakeSnapshot(ctx context.Context) (interface{}, error) {
-  return nil, error
+  return nil, nil
 }

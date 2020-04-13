@@ -31,3 +31,35 @@ func newServices(c *ConfigurationV1Client) *services {
     client: c.RESTClient()
   }
 }
+
+func (s *services) Conference(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *services) ConferenceAlias(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *services) IVRTheme(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *services) GatewayRoutingRule(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *services) Device(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *services) ConferenceSyncTemplate(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *services) LDAPSyncSource(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *services) LDAPSyncField(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}

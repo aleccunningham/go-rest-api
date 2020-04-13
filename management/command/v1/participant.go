@@ -29,3 +29,31 @@ func newParticipants(c *CommandV1Client) *participants {
     client: c.RESTClient()
   }
 }
+
+func (c *conferences) Dial(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (c *conferences) Disconnect(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (c *conferences) Mute(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (c *conferences) Unmute(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (c *conferences) Unlock(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (c *conferences) Transfer(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (c *conferences) Role(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}

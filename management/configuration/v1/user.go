@@ -27,3 +27,23 @@ func newUsers(c *ConfigurationV1Client) *users {
     client: c.RESTClient()
   }
 }
+
+func (u *users) Authentication(ctx contxt.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (u *users) AccountRole(ctx contxt.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (u *users) LDAPRole(ctx contxt.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (u *users) Permission(ctx contxt.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (u *users) EndUser(ctx contxt.Context) (interface{}, error) {
+  return nil, nil
+}

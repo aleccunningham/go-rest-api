@@ -32,3 +32,43 @@ func newPlatforms(c *ConfigurationV1Client) *platforms {
     client: c.RESTClient()
   }
 }
+
+func (s *platforms) SystemLocation(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *platforms) ManagementNode(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *platforms) ConferenceNode(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *platforms) License(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *platforms) LicenseRequest(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *platforms) CACertificate(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *platforms) TLSCertificate(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *platforms) CertificateSigningRequest(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *platforms) Global(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *platforms) DiagnosticGraphs(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}

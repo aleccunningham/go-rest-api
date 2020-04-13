@@ -11,15 +11,12 @@ type SystemGetter interface {
 }
 
 type SystemInterface interface {
-  Conference(ctx context.Context) (interface{}, error)
-	ConferenceAlias(ctx context.Context) (interface{}, error)
-	IVRTheme(ctx context.Context) (interface{}, error)
-	GatewayRoutingRule(ctx context.Context) (interface{}, error)
-	Registration(ctx context.Context) (interface{}, error)
-	Device(ctx context.Context) (interface{}, error)
-	ConferenceSyncTemplate(ctx context.Context) (interface{}, error)
-	LDAPSyncSource(ctx context.Context) (interface{}, error)
-	LDAPSyncField(ctx context.Context) (interface{}, error)
+  DNS(ctx context.Context) (interface{}, error)
+	NTP(ctx context.Context) (interface{}, error)
+  SNMP(ctx context.Context) (interface{}, error)
+	WebProxy(ctx context.Context) (interface{}, error)
+	SyslogServer(ctx context.Context) (interface{}, error)
+	EventSync(ctx context.Context) (interface{}, error)
 }
 
 type systems struct {
@@ -30,4 +27,28 @@ func newSystsems(c *ConfigurationV1Client) *systems {
   return &systems{
     client: c.RESTClient()
   }
+}
+
+func (s *systems) DNS(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *systems) NTP(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *systems) SNMP(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *systems) SyslogServer(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *systems) WebProxy(ctx context.Context) (interface{}, error) {
+  return nil, nil
+}
+
+func (s *systems) EventSync(ctx context.Context) (interface{}, error) {
+  return nil, nil
 }
